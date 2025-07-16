@@ -7,8 +7,7 @@
 </head>
 <body>
  <h1>New User Form</h1>
-
-<form action="/users" method="post" accept-charset="UTF-8" data-turbo="false">
+<!--<form action="/users" method="post" accept-charset="UTF-8" data-turbo="false">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
     <label for="username">username</label>
@@ -21,6 +20,22 @@
     <input type="text" id="password" name="user[password]"><br>
     <br>
     <input type="submit" value="Submit">
-</form>   
+</form>-->
+<%= form_tag("/users", method: :post) do %>
+    <%= label_tag :username %><br>
+    <%= text_field_tag "user[username]" %><br><br>
+    
+    <%= label_tag :email %><br>
+    <%= text_field_tag "user[email]" %><br><br>
+
+    <%= label_tag :password %><br>
+    <%= password_field_tag "user[password]" %><br><br>
+
+    <%= submit_tag "Submit" %>
+<% end %>
+
+
+
+  
 </body>
 </html>
